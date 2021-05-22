@@ -1,3 +1,4 @@
 django
 django-bootstrap4
 bootstrap4
+django-heroku
