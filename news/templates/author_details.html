@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}
+News
+{% endblock %}
+
+{% block content %}
+
+    <table class="table">
+        <tr>
+            <th>Param</th>
+            <th>Value</th>
+        </tr>
+        {% for line in lines %}
+        <tr>
+            {% for item in line %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

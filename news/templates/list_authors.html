@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}
+News
+{% endblock %}
+
+{% block content %}
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Job title</th>
+            <th>Interaction</th>
+        </tr>
+        {% for line in lines %}
+        <tr>
+            <td>{{ line.name }}</td>
+            <td>{{ line.surname }}</td>
+            <td>{{ line.job_title }}</td>
+            <td>
+                <form role="form" class="form-inline" method="POST">
+                    {% csrf_token %}
+                    {% buttons %}
+                        <button type="submit" class="btn btn-outline-success" name="upd" value='{{ line.id }}'>Update</button>
+                        <button type="submit" class="btn btn-outline-danger" name="del" value='{{ line.id }}'>Delete</button>
+                        <button type="submit" class="btn btn-outline-info" name="det" value='{{ line.id }}'>Details</button>
+                    {% endbuttons %}
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
