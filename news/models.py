@@ -1,5 +1,8 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+from django.contrib.auth.models import Permission
+from django.contrib.contenttypes.models import ContentType
 
 
 class Author(models.Model):
@@ -47,6 +50,68 @@ def cnn(data):
 # CheckNone with number
 def cnnn(data):
     return 0 if data is None else data
+
+
+def user_prepare_permissions():
+    content_type = ContentType.objects.get_for_model(Author)
+    Permission.objects.get_or_create(codename='modify_author', name='Modify Authors', content_type=content_type)
+    content_type = ContentType.objects.get_for_model(NewsArticle)
+    Permission.objects.get_or_create(codename='modify_article', name='Modify Articles', content_type=content_type)
+
+
+def user_add_moderator_rights(pk):
+    ct = ContentType.objects.get_for_model(Author)
+    perm = Permission.objects.get(codename='modify_author', content_type=ct)
+    user_get_user(pk).user_permissions.add(perm)
+    ct = ContentType.objects.get_for_model(NewsArticle)
+    perm = Permission.objects.get(codename='modify_article', content_type=ct)
+    user_get_user(pk).user_permissions.add(perm)
+    return user_get_user(pk)
+
+
+def user_is_moderator(username):
+    return user_get_user_un(username).has_perm('news.modify_author')  # that's enough for now
+
+
+def user_add_user(login, password, email='', is_admin=False):
+    user = User.objects.create_user(username=login, password=password, email=email, is_staff=is_admin, is_superuser=is_admin)
+    user.save()
+    return user
+
+
+def user_get_user(pk):
+    return User.objects.filter(pk=pk).get()
+
+
+def user_get_user_un(username):
+    return User.objects.filter(username=username).get()
+
+
+def user_delete_user(pk):
+    try:
+        user_get_user(pk).delete()
+    finally:
+        pass
+
+
+def user_edit_user(user, login=None, password=None, email=None):
+    save = False
+    if login is not None and login != '':
+        user.username = login
+        save = True
+    if password is not None and password != '':
+        user.set_password(password)
+        save = True
+    if email is not None and email != '':
+        user.email = email
+        save = True
+    if save:
+        user.save()
+    return user
+
+
+def user_edit_user1(pk, login=None, password=None, email=None):
+    return user_edit_user(user_get_user(pk), login, password, email)
 
 
 def author_add_author(name, surname='', job_title=''):

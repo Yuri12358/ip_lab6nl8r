@@ -1,0 +1,17 @@
+{% extends 'bootstrap.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}
+Log out
+{% endblock %}
+
+{% block bootstrap4_content %}
+    {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+    {% block content %}
+    <h1>{{ result }}</h1>
+    <a href="{% url 'log_in' %}">Log in</a>
+    {% endblock %}
+
+{% endblock %}

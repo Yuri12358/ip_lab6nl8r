@@ -7,15 +7,27 @@
         <h1>{% block title %}(no title){% endblock %}</h1>
 
         <p>
+            {% if logged_in %}
+            {{ username }}|
+            <a href="{% url 'log_out' %}">Log out</a>
+            |
+            <a href="{% url 'change_user_data' %}">Change my data</a>
+            <br/>
             <a href="{% url 'add_author' %}">Add author</a>
             <a href="{% url 'add_article' %}">Add article</a>
             <a href="{% url 'list_authors' %}">List authors</a>
             <a href="{% url 'list_articles' %}">List articles</a>
+            {% else %}
+            You must be logged in. Proceed to do so.
+            <a href="{% url 'log_in' %}">Log in</a>
+            {% endif %}
         </p>
 
         {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
 
+        {% if logged_in %}
         {% block content %}(no content){% endblock %}
+        {% endif %}
     </div>
 
 {% endblock %}

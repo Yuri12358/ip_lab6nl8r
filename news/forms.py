@@ -30,3 +30,19 @@ class EditAuthorForm(AddAuthorForm):
 
 class EditArticleForm(AddArticleForm):
     pass
+
+
+class LogInForm(forms.Form):
+    login = forms.CharField(max_length=120, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, max_length=120, required=True)
+
+
+class ChangeUserDataForm(forms.Form):
+    login = forms.CharField(max_length=120, required=False)
+    password = forms.CharField(widget=forms.PasswordInput, max_length=120, required=False)
+
+
+class SignUpForm(forms.Form):
+    login = forms.CharField(max_length=120, required=True)
+    email = forms.EmailField(max_length=120, required=False)
+    password = forms.CharField(widget=forms.PasswordInput, max_length=120, required=True)

@@ -17,7 +17,11 @@ from . import views
 
 # class-based views
 urlpatterns = [
-    path('', views.AddAuthorView.as_view(), name='add_author'),
+    path('', views.AddAuthorView.as_view(), name='sign_up'),
+    path('sign_up/', views.SignUpView.as_view(), name='sign_up'),
+    path('change_user_data/', views.ChangeUserDataView.as_view(), name='change_user_data'),
+    path('log_in/', views.LogInView.as_view(), name='log_in'),
+    path('log_out/', views.LogOutView.as_view(), name='log_out'),
     path('add_author/', views.AddAuthorView.as_view(), name='add_author'),
     path('add_article/', views.AddArticleView.as_view(), name='add_article'),
     path('list_authors/', views.ListAuthorsView.as_view(), name='list_authors'),

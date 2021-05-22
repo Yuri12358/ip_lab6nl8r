@@ -1,0 +1,23 @@
+{% extends 'bootstrap.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}
+Change user data
+{% endblock %}
+
+{% block bootstrap4_content %}
+    {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+    {% block content %}
+    <form role="form" class="form-horizontal" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form layout="horizontal" %}
+        {% buttons layout='horizontal' %}
+        <button type="submit" class="btn btn-outline-info" name="apply">Apply</button>
+        {% endbuttons %}
+    </form>
+    <h1>{{ error }}</h1>
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'bootstrap.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}
+Log in
+{% endblock %}
+
+{% block bootstrap4_content %}
+    {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+    {% block content %}
+    <form role="form" class="form-horizontal" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form layout="horizontal" %}
+        {% buttons layout='horizontal' %}
+        <button type="submit" class="btn btn-outline-info" name="log_in">Log in</button>
+        <a href="{% url 'sign_up' %}">Sign up</a>
+        {% endbuttons %}
+    </form>
+    <h1>{{ error }}</h1>
+    {% endblock %}
+
+{% endblock %}
