@@ -1,20 +1,22 @@
 {% extends 'bootstrap.html' %}
 
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block title %}
-Change user data
+{% translate "Change user data" %}
 {% endblock %}
 
 {% block bootstrap4_content %}
     {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
 
     {% block content %}
+    {% include 'setlang.html' %}
     <form role="form" class="form-horizontal" method="post">
         {% csrf_token %}
         {% bootstrap_form form layout="horizontal" %}
         {% buttons layout='horizontal' %}
-        <button type="submit" class="btn btn-outline-info" name="apply">Apply</button>
+        <button type="submit" class="btn btn-outline-info" name="apply">{% translate "Apply" %}</button>
         {% endbuttons %}
     </form>
     <h1>{{ error }}</h1>

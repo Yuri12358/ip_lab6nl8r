@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block title %}
-News
+{% translate "News" %}
 {% endblock %}
 
 {% block content %}
 
     <table class="table">
         <tr>
-            <th>Param</th>
-            <th>Value</th>
+            <th>{% translate "Param" %}</th>
+            <th>{% translate "Value" %}</th>
         </tr>
         {% for line in lines %}
         <tr>

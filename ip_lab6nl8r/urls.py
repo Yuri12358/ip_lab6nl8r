@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', include('news.urls')),
     path('', RedirectView.as_view(url='news/', permanent=False)),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

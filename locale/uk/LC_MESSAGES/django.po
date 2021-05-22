@@ -1,0 +1,237 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-22 13:52+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: news/admin.py:11 news/templates/list_articles.html:17 news/views.py:193
+msgid "View count"
+msgstr "Кількість переглядів"
+
+#: news/admin.py:16
+msgid "100+ views"
+msgstr "100+ переглядів"
+
+#: news/admin.py:17
+msgid "11...100 views"
+msgstr "11...100 переглядів"
+
+#: news/admin.py:18
+msgid "1...10 views"
+msgstr "1...10 переглядів"
+
+#: news/admin.py:19
+msgid "Not viewed"
+msgstr "Немає переглядів"
+
+#: news/admin.py:46
+msgid "Articles and authors"
+msgstr "Статті та автори"
+
+#: news/forms.py:23
+msgid "View count can't be less than 0"
+msgstr "Кількість переглядів не може бути менше 0"
+
+#: news/models.py:58
+msgid "Modify Authors"
+msgstr "Змінити Авторів"
+
+#: news/models.py:60
+msgid "Modify Articles"
+msgstr "Змінити Статті"
+
+#: news/templates/add_article.html:7 news/templates/add_author.html:7
+#: news/templates/article_details.html:7 news/templates/author_details.html:7
+#: news/templates/edit_article.html:7 news/templates/edit_author.html:7
+#: news/templates/list_articles.html:7 news/templates/list_authors.html:7
+msgid "News"
+msgstr "Новини"
+
+#: news/templates/add_article.html:16 news/templates/add_author.html:16
+msgid "Add"
+msgstr "Додати"
+
+#: news/templates/add_article.html:16 news/templates/add_author.html:16
+#: news/templates/edit_article.html:16 news/templates/edit_author.html:16
+msgid "Reset"
+msgstr "Скинути"
+
+#: news/templates/add_article.html:19 news/templates/add_author.html:19
+#: news/templates/edit_article.html:19 news/templates/edit_author.html:19
+msgid "You need to log in as moderator"
+msgstr "Ви маєте ввійти як модератор"
+
+#: news/templates/article_details.html:14 news/templates/author_details.html:14
+msgid "Param"
+msgstr "Параметр"
+
+#: news/templates/article_details.html:15 news/templates/author_details.html:15
+msgid "Value"
+msgstr "Значення"
+
+#: news/templates/base.html:8
+msgid "(no title)"
+msgstr "(без заголовку)"
+
+#: news/templates/base.html:13 news/templates/log_out.html:7
+msgid "Log out"
+msgstr "Вийти"
+
+#: news/templates/base.html:15
+msgid "Change my data"
+msgstr "Змінити дані"
+
+#: news/templates/base.html:17
+msgid "Add author"
+msgstr "Додати автора"
+
+#: news/templates/base.html:18
+msgid "Add article"
+msgstr "Додати статтю"
+
+#: news/templates/base.html:19
+msgid "List authors"
+msgstr "Показати авторів"
+
+#: news/templates/base.html:20
+msgid "List articles"
+msgstr "Показати статті"
+
+#: news/templates/base.html:22
+msgid "You must be logged in. Proceed to do so."
+msgstr "Ви маєте ввійти до системи"
+
+#: news/templates/base.html:23 news/templates/log_in.html:7
+#: news/templates/log_in.html:18 news/templates/log_out.html:15
+msgid "Log in"
+msgstr "Увійти"
+
+#: news/templates/base.html:30
+msgid "(no content)"
+msgstr "(без вмісту)"
+
+#: news/templates/change_user_data.html:7
+msgid "Change user data"
+msgstr "Змінити користувацькі дані"
+
+#: news/templates/change_user_data.html:18
+msgid "Apply"
+msgstr "Застосувати"
+
+#: news/templates/edit_article.html:16 news/templates/edit_author.html:16
+#: news/templates/list_articles.html:31 news/templates/list_authors.html:29
+msgid "Update"
+msgstr "Оновити"
+
+#: news/templates/list_articles.html:14 news/views.py:194
+msgid "Header"
+msgstr "Заголовок"
+
+#: news/templates/list_articles.html:15 news/views.py:195
+msgid "Text"
+msgstr "Текст"
+
+#: news/templates/list_articles.html:16 news/views.py:191
+msgid "Publication time"
+msgstr "Час публікації"
+
+#: news/templates/list_articles.html:18 news/templates/list_authors.html:17
+msgid "Interaction"
+msgstr "Дії"
+
+#: news/templates/list_articles.html:32 news/templates/list_authors.html:30
+msgid "Delete"
+msgstr "Видалити"
+
+#: news/templates/list_articles.html:33 news/templates/list_authors.html:31
+msgid "Details"
+msgstr "Детальніше"
+
+#: news/templates/list_authors.html:14 news/views.py:221
+msgid "Name"
+msgstr "Ім'я"
+
+#: news/templates/list_authors.html:15 news/views.py:222
+msgid "Surname"
+msgstr "Прізвище"
+
+#: news/templates/list_authors.html:16 news/views.py:223
+msgid "Job title"
+msgstr "Посада"
+
+#: news/templates/log_in.html:19 news/templates/sign_up.html:7
+msgid "Sign up"
+msgstr "Зареєструватися"
+
+#: news/templates/sign_up.html:19
+msgid "Sign up as User"
+msgstr "Зареєструватися як Користувач"
+
+#: news/templates/sign_up.html:20
+msgid "Sign up as Moderator"
+msgstr "Зареєструватися як Модератор"
+
+#: news/templates/sign_up.html:21
+msgid "Sign up as Admin"
+msgstr "Зареєструватися як Адміністратор"
+
+#: news/views.py:186 news/views.py:220
+msgid "ID"
+msgstr "Код"
+
+#: news/views.py:187
+msgid "Author id"
+msgstr "Код автора"
+
+#: news/views.py:188
+msgid "Author name"
+msgstr "Ім'я автора"
+
+#: news/views.py:189
+msgid "Author surname"
+msgstr "Прізвище автора"
+
+#: news/views.py:190
+msgid "Author job title"
+msgstr "Посада автора"
+
+#: news/views.py:192
+msgid "Last edit time"
+msgstr "Змінено востаннє"
+
+#: news/views.py:224
+msgid "Articles"
+msgstr "Статті"
+
+#: news/views.py:266
+msgid "Invalid username or password"
+msgstr "Неправильний логін або пароль"
+
+#: news/views.py:268
+msgid "Inactive user"
+msgstr "Неактивний користувач"
+
+#: news/views.py:282
+msgid "Error: Not authenticated"
+msgstr "Помилка: не автентифіковано"
+
+#: news/views.py:285
+msgid "Logged out successfully"
+msgstr "Вихід здійснено успішно"

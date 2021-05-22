@@ -5,6 +5,7 @@ from django.views import View
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout
 from django.contrib.auth import login as dj_login
+from django.utils.translation import ugettext as _
 from news.forms import *
 from news.models import *
 
@@ -68,7 +69,8 @@ class AddArticleView(View):
             view_count = form.cleaned_data['view_count']
             header = form.cleaned_data['header']
             text = form.cleaned_data['text']
-            article_add_article1(author_name, author_surname, header, text, view_count)
+            article_add_article1(author_name, author_surname,
+                                 header, text, view_count)
         return render(request, self.template_name, context=context)
 
 
@@ -141,7 +143,8 @@ class EditArticleView(View):
             view_count = form.cleaned_data['view_count']
             header = form.cleaned_data['header']
             text = form.cleaned_data['text']
-            article_edit_article1(kwargs['pk'], author_name, author_surname, header, text, view_count)
+            article_edit_article1(
+                kwargs['pk'], author_name, author_surname, header, text, view_count)
         return self.common(request, kwargs['pk'])
 
 
@@ -180,16 +183,16 @@ class ArticleDetailsView(View):
         article.view_count += 1
         article.save()
         lines = [
-            ('ID', article.id),
-            ('Author id', article.author.id),
-            ('Author name', article.author.name),
-            ('Author surname', article.author.surname),
-            ('Author job title', article.author.job_title),
-            ('Publication time', article.publication_time),
-            ('Last edit time', article.last_edit_time),
-            ('View count', article.view_count),
-            ('Header', article.header),
-            ('Text', article.text),
+            (_('ID'), article.id),
+            (_('Author id'), article.author.id),
+            (_('Author name'), article.author.name),
+            (_('Author surname'), article.author.surname),
+            (_('Author job title'), article.author.job_title),
+            (_('Publication time'), article.publication_time),
+            (_('Last edit time'), article.last_edit_time),
+            (_('View count'), article.view_count),
+            (_('Header'), article.header),
+            (_('Text'), article.text),
         ]
         context = {'lines': lines}
         fill_auth_ctx(request, context)
@@ -214,11 +217,11 @@ class AuthorDetailsView(View):
         if len(article_headers) > 2:
             article_headers = article_headers[:len(article_headers) - 2]
         lines = [
-            ('ID', author.id),
-            ('Name', author.name),
-            ('Surname', author.surname),
-            ('Job title', author.job_title),
-            ('Articles', article_headers),
+            (_('ID'), author.id),
+            (_('Name'), author.name),
+            (_('Surname'), author.surname),
+            (_('Job title'), author.job_title),
+            (_('Articles'), article_headers),
         ]
         context = {'lines': lines}
         fill_auth_ctx(request, context)
@@ -260,9 +263,9 @@ class LogInView(View):
         if 'log_in' in request.POST:
             user = authenticate(username=request.POST['login'], password=request.POST['password'])
             if user is None:
-                return render(request, self.template_name, context={'form': LogInForm(), 'error': 'Invalid username or password'})
+                return render(request, self.template_name, context={'form': LogInForm(), 'error': _('Invalid username or password')})
             if not user.is_active:
-                return render(request, self.template_name, context={'form': LogInForm(), 'error': 'Inactive user'})
+                return render(request, self.template_name, context={'form': LogInForm(), 'error': _('Inactive user')})
             dj_login(request, user)
             return HttpResponseRedirect(reverse('list_authors'))
         elif 'sign_up' in request.POST:
@@ -276,10 +279,10 @@ class LogOutView(View):
     def common(self, request):
         context = {}
         if not request.user.is_authenticated:
-            context['result'] = 'Error: Not authenticated'
+            context['result'] = _('Error: Not authenticated')
         else:
             logout(request)
-            context['result'] = 'Logged out successfully'
+            context['result'] = _('Logged out successfully')
         return render(request, self.template_name, context=context)
 
     def get(self, request, *args, **kwargs):

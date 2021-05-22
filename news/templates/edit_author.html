@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block title %}
-News
+{% trans "News" %}
 {% endblock %}
 
 {% block content %}
@@ -12,10 +13,10 @@ News
 <form role="form" class="form-horizontal" method="post">
     {% csrf_token %}
     {% bootstrap_form form layout="horizontal" %}
-    {% buttons submit='Update' reset='Reset' layout='horizontal' %}{% endbuttons %}
+    {% buttons submit=_('Update') reset=_('Reset') layout='horizontal' %}{% endbuttons %}
 </form>
 {% else %}
-<p>You need to log in as moderator</p>
+<p>{% translate "You need to log in as moderator" %}</p>
 {% endif %}
 
 {% endblock %}

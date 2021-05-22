@@ -1,9 +1,10 @@
 {% extends 'bootstrap.html' %}
 
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block title %}
-Sign up
+{% translate "Sign up" %}
 {% endblock %}
 
 {% block bootstrap4_content %}
@@ -14,10 +15,10 @@ Sign up
         {% csrf_token %}
         {% bootstrap_form form layout="horizontal" %}
         {% buttons layout='horizontal' %}
-        <a href="{% url 'log_in' %}">Log in</a>
-        <button type="submit" class="btn btn-outline-info" name="sign_up_u" value='{{ line.id }}'>Sign up as User</button>
-        <button type="submit" class="btn btn-outline-info" name="sign_up_m" value='{{ line.id }}'>Sign up as Moderator</button>
-        <button type="submit" class="btn btn-outline-info" name="sign_up_a" value='{{ line.id }}'>Sign up as Admin</button>
+        <a href="{% url 'log_in' %}">{% translate "Log in" %}</a>
+        <button type="submit" class="btn btn-outline-info" name="sign_up_u" value='{{ line.id }}'>{% translate "Sign up as User" %}</button>
+        <button type="submit" class="btn btn-outline-info" name="sign_up_m" value='{{ line.id }}'>{% translate "Sign up as Moderator" %}</button>
+        <button type="submit" class="btn btn-outline-info" name="sign_up_a" value='{{ line.id }}'>{% translate "Sign up as Admin" %}</button>
         {% endbuttons %}
     </form>
     {% endblock %}

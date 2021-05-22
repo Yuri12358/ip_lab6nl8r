@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block title %}
-News
+{% translate "News" %}
 {% endblock %}
 
 {% block content %}
 
     <table class="table">
         <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Job title</th>
-            <th>Interaction</th>
+            <th>{% translate "Name" %}</th>
+            <th>{% translate "Surname" %}</th>
+            <th>{% translate "Job title" %}</th>
+            <th>{% translate "Interaction" %}</th>
         </tr>
         {% for line in lines %}
         <tr>
@@ -25,9 +26,9 @@ News
                 <form role="form" class="form-inline" method="POST">
                     {% csrf_token %}
                     {% buttons %}
-                        <button type="submit" class="btn btn-outline-success" name="upd" value='{{ line.id }}'>Update</button>
-                        <button type="submit" class="btn btn-outline-danger" name="del" value='{{ line.id }}'>Delete</button>
-                        <button type="submit" class="btn btn-outline-info" name="det" value='{{ line.id }}'>Details</button>
+                        <button type="submit" class="btn btn-outline-success" name="upd" value='{{ line.id }}'>{% translate "Update" %}</button>
+                        <button type="submit" class="btn btn-outline-danger" name="del" value='{{ line.id }}'>{% translate "Delete" %}</button>
+                        <button type="submit" class="btn btn-outline-info" name="det" value='{{ line.id }}'>{% translate "Details" %}</button>
                     {% endbuttons %}
                 </form>
                 {% endif %}

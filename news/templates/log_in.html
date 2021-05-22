@@ -1,24 +1,28 @@
 {% extends 'bootstrap.html' %}
 
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block title %}
-Log in
+{% translate "Log in" %}
 {% endblock %}
 
 {% block bootstrap4_content %}
     {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
 
     {% block content %}
+
+    {% include "setlang.html" %}
     <form role="form" class="form-horizontal" method="post">
         {% csrf_token %}
         {% bootstrap_form form layout="horizontal" %}
         {% buttons layout='horizontal' %}
-        <button type="submit" class="btn btn-outline-info" name="log_in">Log in</button>
-        <a href="{% url 'sign_up' %}">Sign up</a>
+        <button type="submit" class="btn btn-outline-info" name="log_in">{% translate "Log in" %}</button>
+        <a href="{% url 'sign_up' %}">{% translate "Sign up" %}</a>
         {% endbuttons %}
     </form>
     <h1>{{ error }}</h1>
+
     {% endblock %}
 
 {% endblock %}

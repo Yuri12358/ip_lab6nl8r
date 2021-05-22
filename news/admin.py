@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 from .models import Author, NewsArticle
 
 
@@ -7,15 +8,15 @@ class ArticleInline(admin.TabularInline):
 
 
 class ViewCountListFilter(admin.SimpleListFilter):
-    title = 'View count'
+    title = _('View count')
     parameter_name = 'view_cnt'
 
     def lookups(self, request, model_admin):
         return (
-            ('100+', '100+ views'),
-            ('10+', '11...100 views'),
-            ('1+', '1...10 views'),
-            ('0', 'Not viewed'),
+            ('100+', _('100+ views')),
+            ('10+', _('11...100 views')),
+            ('1+', _('1...10 views')),
+            ('0', _('Not viewed')),
         )
 
     def queryset(self, request, queryset):
@@ -42,4 +43,4 @@ class NewsArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(NewsArticle, NewsArticleAdmin)
-admin.site.site_header = 'Articles and authors'
+admin.site.site_header = _('Articles and authors')
